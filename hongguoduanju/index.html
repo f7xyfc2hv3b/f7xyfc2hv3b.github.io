@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>红果短剧首页-红果短剧热门推荐_红果短剧在线观看入口</title>
+<meta name="description" content="红果短剧首页汇集热门短剧推荐、分类浏览与在线观看入口，帮助用户快速找到想看的红果短剧内容，了解首页主要栏目与使用方式。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e03a2f'/%3E%3Ccircle cx='32' cy='30' r='13' fill='%23fff'/%3E%3Cpath d='M29 22l10 8-10 8z' fill='%23e03a2f'/%3E%3Cpath d='M20 16c4 5 4 11 0 16' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M44 16c-4 5-4 11 0 16' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --red:#e03a2f;
+    --red-deep:#b32a21;
+    --ink:#1f1d1b;
+    --ink-soft:#4a4541;
+    --muted:#7a736d;
+    --paper:#fdf9f6;
+    --card:#ffffff;
+    --line:#eee3dc;
+    --gold:#f0a800;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+
+  /* ===== header ===== */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,249,246,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{display:flex;align-items:center;gap:24px;height:66px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.2px;color:var(--red-deep);white-space:nowrap;}
+  .brand .mark{width:34px;height:34px;flex:0 0 34px;}
+  nav.main{display:flex;gap:22px;margin-left:auto;font-size:15px;color:var(--ink-soft);}
+  nav.main a{padding:6px 2px;border-bottom:2px solid transparent;transition:.2s;}
+  nav.main a:hover{color:var(--red);border-bottom-color:var(--red);}
+  .head-cta{
+    background:var(--red);color:#fff;font-size:14px;font-weight:700;
+    padding:9px 18px;border-radius:999px;box-shadow:0 6px 16px rgba(224,58,47,.28);
+    transition:.2s;
+  }
+  .head-cta:hover{background:var(--red-deep);}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:14px;color:var(--ink-soft);cursor:pointer;}
+
+  /* ===== hero ===== */
+  .hero{position:relative;overflow:hidden;padding:54px 0 46px;background:
+    radial-gradient(900px 380px at 90% -10%,rgba(240,168,0,.16),transparent 70%),
+    radial-gradient(700px 340px at 0% 0%,rgba(224,58,47,.15),transparent 70%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+  .tagline{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--red-deep);background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:999px;}
+  .tagline i{width:7px;height:7px;border-radius:50%;background:var(--red);display:block;}
+  h1{margin-top:16px;font-size:36px;line-height:1.28;letter-spacing:-.5px;font-weight:900;color:var(--ink);}
+  h1 em{font-style:normal;color:var(--red);}
+  .hero p.lead{margin-top:16px;font-size:16px;color:var(--ink-soft);max-width:34em;}
+  .hero-actions{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--red);color:#fff;font-weight:700;font-size:15px;
+    padding:12px 24px;border-radius:999px;box-shadow:0 10px 24px rgba(224,58,47,.28);transition:.2s;
+  }
+  .btn-primary:hover{background:var(--red-deep);transform:translateY(-1px);}
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;border:1px solid var(--line);color:var(--ink-soft);font-weight:600;font-size:15px;
+    padding:12px 22px;border-radius:999px;transition:.2s;
+  }
+  .btn-ghost:hover{border-color:var(--red);color:var(--red);}
+  .hero-stats{margin-top:30px;display:flex;gap:34px;flex-wrap:wrap;}
+  .hero-stats div b{display:block;font-size:22px;font-weight:900;color:var(--red);line-height:1.2;}
+  .hero-stats div span{font-size:13px;color:var(--muted);}
+  .hero-art{
+    background:linear-gradient(160deg,#fff 0%,#fff4ed 100%);
+    border:1px solid var(--line);border-radius:24px;padding:18px;
+    box-shadow:0 22px 50px -24px rgba(179,42,33,.35);
+  }
+  .art-label{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1px;margin-bottom:10px;}
+  .art-list{display:flex;flex-direction:column;gap:10px;}
+  .art-item{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid #f4ebe5;border-radius:12px;padding:9px 12px;}
+  .art-thumb{width:44px;height:56px;border-radius:8px;flex:0 0 44px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;}
+  .t1{background:linear-gradient(150deg,#e03a2f,#f0a800);}
+  .t2{background:linear-gradient(150deg,#7a4cf0,#e03a2f);}
+  .t3{background:linear-gradient(150deg,#1f8f7a,#f0a800);}
+  .art-item b{font-size:14px;display:block;line-height:1.4;}
+  .art-item small{font-size:12px;color:var(--muted);}
+  .art-badge{margin-left:auto;font-size:11px;font-weight:700;color:var(--red-deep);background:#fdeceb;padding:2px 8px;border-radius:999px;}
+
+  /* ===== section base ===== */
+  section{padding:52px 0;}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px;flex-wrap:wrap;}
+  .sec-head h2{font-size:24px;font-weight:900;letter-spacing:-.3px;}
+  .sec-head h2 span{color:var(--red);}
+  .sec-head p{font-size:14px;color:var(--muted);max-width:38em;}
+  .sec-head .more{font-size:14px;font-weight:700;color:var(--red-deep);border-bottom:1px solid transparent;}
+  .sec-head .more:hover{border-bottom-color:var(--red-deep);}
+
+  /* ===== categories ===== */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .cat-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 18px;transition:.22s;display:block;
+  }
+  .cat-card:hover{transform:translateY(-3px);border-color:#f2c4bd;box-shadow:0 18px 36px -22px rgba(179,42,33,.4);}
+  .cat-icon{width:40px;height:40px;border-radius:11px;background:#fdeceb;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+  .cat-card h3{font-size:16px;font-weight:800;margin-bottom:6px;}
+  .cat-card p{font-size:13px;color:var(--muted);line-height:1.7;}
+
+  /* ===== picks ===== */
+  .picks{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .pick-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper);display:flex;flex-direction:column;transition:.22s;}
+  .pick-card:hover{box-shadow:0 20px 40px -26px rgba(179,42,33,.45);transform:translateY(-3px);}
+  .pick-cover{height:120px;display:flex;align-items:center;justify-content:center;position:relative;}
+  .pick-cover span{font-size:13px;font-weight:800;color:#fff;background:rgba(0,0,0,.22);padding:4px 12px;border-radius:999px;}
+  .c1{background:linear-gradient(135deg,#e03a2f,#f0a800);}
+  .c2{background:linear-gradient(135deg,#5b3ad6,#e03a2f);}
+  .c3{background:linear-gradient(135deg,#1f8f7a,#3dbfa4);}
+  .c4{background:linear-gradient(135deg,#c23a86,#f0a800);}
+  .c5{background:linear-gradient(135deg,#2b6fd6,#7a4cf0);}
+  .c6{background:linear-gradient(135deg,#e06a2f,#b32a21);}
+  .pick-body{padding:16px 18px 18px;}
+  .pick-body h3{font-size:16px;font-weight:800;margin-bottom:6px;}
+  .pick-body p{font-size:13px;color:var(--ink-soft);line-height:1.7;}
+  .pick-meta{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{font-size:11px;font-weight:700;color:var(--red-deep);background:#fdeceb;padding:2px 9px;border-radius:999px;}
+
+  /* ===== how ===== */
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step;}
+  .how-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;position:relative;}
+  .how-item::before{
+    counter-increment:step;content:"0" counter(step);
+    font-size:13px;font-weight:900;color:var(--red);letter-spacing:1px;
+  }
+  .how-item h3{font-size:16px;font-weight:800;margin:8px 0 8px;}
+  .how-item p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ===== article / FAQ ===== */
+  .read{background:#fff;border-top:1px solid var(--line);}
+  .read-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:40px;align-items:start;}
+  .read h2{font-size:23px;font-weight:900;margin-bottom:14px;}
+  .read p{font-size:15px;color:var(--ink-soft);margin-bottom:14px;line-height:1.85;}
+  .read p b{color:var(--ink);font-weight:700;}
+  .faq{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:8px 20px;}
+  .faq h3{font-size:16px;font-weight:800;padding:16px 0 10px;}
+  .faq details{border-top:1px solid var(--line);padding:12px 0;}
+  .faq details:first-of-type{border-top:none;}
+  .faq summary{font-size:14px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px;color:var(--ink);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";color:var(--red);font-weight:900;}
+  .faq details[open] summary::after{content:"−";}
+  .faq details p{font-size:13.5px;color:var(--muted);margin:8px 0 0;}
+
+  /* ===== download ===== */
+  .dl{
+    background:linear-gradient(135deg,#e03a2f,#b32a21);
+    border-radius:22px;color:#fff;padding:38px 34px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+    box-shadow:0 24px 50px -26px rgba(179,42,33,.7);
+  }
+  .dl h2{font-size:22px;font-weight:900;margin-bottom:8px;}
+  .dl p{font-size:14px;color:rgba(255,255,255,.85);max-width:34em;}
+  .dl-btn{
+    display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--red-deep);
+    font-weight:800;font-size:15px;padding:13px 30px;border-radius:999px;
+    pointer-events:none;opacity:.95;
+  }
+
+  /* ===== footer ===== */
+  footer{background:#211d1b;color:#c9c0ba;padding:44px 0 28px;margin-top:0;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:30px;}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:17px;margin-bottom:12px;}
+  footer p{font-size:13px;line-height:1.8;color:#a49a93;}
+  footer h4{font-size:14px;color:#fff;font-weight:800;margin-bottom:12px;}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  footer ul a{font-size:13px;color:#a49a93;transition:.2s;}
+  footer ul a:hover{color:#f0a800;}
+  .foot-bottom{border-top:1px solid #352f2c;padding-top:18px;font-size:12.5px;color:#8a8079;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+
+  /* ===== responsive ===== */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:30px;}
+    .hero-art{order:-1;}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .pick-grid{grid-template-columns:repeat(2,1fr);}
+    .how-grid{grid-template-columns:1fr;}
+    .read-grid{grid-template-columns:1fr;gap:26px;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    .head-inner{height:60px;gap:12px;}
+    nav.main{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:8px 20px 14px;border-bottom:1px solid var(--line);box-shadow:0 12px 24px -18px rgba(0,0,0,.3);}
+    nav.main.open{display:flex;}
+    nav.main a{padding:11px 0;border-bottom:1px solid #f6eee9;}
+    .menu-btn{display:block;margin-left:auto;}
+    .head-cta{display:none;}
+    .hero{padding:34px 0 34px;}
+    h1{font-size:27px;}
+    .hero p.lead{font-size:15px;}
+    .hero-stats{gap:22px;}
+    .hero-stats div b{font-size:19px;}
+    section{padding:38px 0;}
+    .sec-head h2{font-size:20px;}
+    .cat-grid{grid-template-columns:1fr;}
+    .pick-grid{grid-template-columns:1fr;}
+    .dl{padding:28px 22px;}
+    .dl h2{font-size:19px;}
+    .foot-grid{grid-template-columns:1fr;gap:24px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a href="#top" class="brand" aria-label="红果短剧首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#e03a2f"/>
+        <circle cx="32" cy="30" r="13" fill="#fff"/>
+        <path d="M29 22l10 8-10 8z" fill="#e03a2f"/>
+        <path d="M20 16c4 5 4 11 0 16" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M44 16c-4 5-4 11 0 16" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>红果短剧首页</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="展开导航" aria-expanded="false">导航</button>
+    <nav class="main" id="mainNav">
+      <a href="#categories">短剧分类</a>
+      <a href="#picks">热门推荐</a>
+      <a href="#how">观看指引</a>
+      <a href="#about">首页说明</a>
+      <a href="#download">客户端</a>
+    </nav>
+    <a href="#picks" class="head-cta">开始看剧</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tagline"><i></i>短剧内容聚合 · 首页入口</span>
+        <h1>红果短剧首页</h1>
+        <p class="lead">这里是红果短剧首页的内容导览：按题材找到想看的故事，从推荐位直接进入剧集，了解首页各栏目分别提供什么、适合怎样使用。</p>
+        <div class="hero-actions">
+          <a href="#picks" class="btn-primary">浏览热门推荐
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#categories" class="btn-ghost">按分类查找</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>多题材</b><span>都市 / 逆袭 / 情感 / 悬疑</span></div>
+          <div><b>单集短</b><span>适合碎片时间连看</span></div>
+          <div><b>一屏导航</b><span>推荐与分类同页可达</span></div>
+        </div>
+      </div>
+      <aside class="hero-art" aria-label="首页推荐位示例">
+        <div class="art-label">首页推荐位 · 示例</div>
+        <div class="art-list">
+          <div class="art-item">
+            <div class="art-thumb t1">热</div>
+            <div><b>都市逆袭短剧</b><small>强情节 · 快节奏</small></div>
+            <span class="art-badge">推荐</span>
+          </div>
+          <div class="art-item">
+            <div class="art-thumb t2">情</div>
+            <div><b>情感治愈短剧</b><small>日常向 · 轻松看</small></div>
+            <span class="art-badge">上新</span>
+          </div>
+          <div class="art-item">
+            <div class="art-thumb t3">悬</div>
+            <div><b>悬疑推理短剧</b><small>反转多 · 追更看</small></div>
+            <span class="art-badge">精选</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>短剧分类，<span>按喜好进入</span></h2>
+          <p>红果短剧首页的分类区把不同题材分开排列，先确定方向，再挑具体剧集，比在长列表里反复翻找更省时间。</p>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <a href="#picks" class="cat-card">
+          <div class="cat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e03a2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V8l6-5 6 5v13M10 21v-6h4v6"/></svg>
+          </div>
+          <h3>都市逆袭</h3>
+          <p>主角从低谷翻盘，冲突集中、推进迅速，适合想一口气看完一段完整转折的观众。</p>
+        </a>
+        <a href="#picks" class="cat-card">
+          <div class="cat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e03a2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>
+          </div>
+          <h3>情感治愈</h3>
+          <p>关系线与生活感为主，节奏相对舒缓，适合在通勤或睡前一段一段慢慢看。</p>
+        </a>
+        <a href="#picks" class="cat-card">
+          <div class="cat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e03a2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          </div>
+          <h3>悬疑推理</h3>
+          <p>线索铺陈与反转是看点，适合愿意跟着剧情推敲、逐集追更的观众。</p>
+        </a>
+        <a href="#picks" class="cat-card">
+          <div class="cat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e03a2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 9v10"/></svg>
+          </div>
+          <h3>古装传奇</h3>
+          <p>背景设定鲜明，人物关系与身份线是主要看点，适合喜欢完整世界观设定的用户。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PICKS -->
+  <section class="picks" id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>热门推荐，<span>先看这几类</span></h2>
+          <p>推荐位是红果短剧首页最直接的入口：封面、标签和一句简介，帮助你在几秒内判断是否值得点开。</p>
+        </div>
+        <a href="#how" class="more">怎么挑剧 →</a>
+      </div>
+      <div class="pick-grid">
+        <article class="pick-card">
+          <div class="pick-cover c1"><span>强情节</span></div>
+          <div class="pick-body">
+            <h3>反差开局型</h3>
+            <p>开篇即抛出矛盾，前几集就把人物处境交代清楚，适合不想等铺垫的观众。</p>
+            <div class="pick-meta"><span class="chip">都市</span><span class="chip">逆袭</span></div>
+          </div>
+        </article>
+        <article class="pick-card">
+          <div class="pick-cover c2"><span>情感线</span></div>
+          <div class="pick-body">
+            <h3>双线并进型</h3>
+            <p>感情线与成长线同时推进，每集结尾留一个悬念，连看体验更完整。</p>
+            <div class="pick-meta"><span class="chip">情感</span><span class="chip">成长</span></div>
+          </div>
+        </article>
+        <article class="pick-card">
+          <div class="pick-cover c3"><span>轻喜感</span></div>
+          <div class="pick-body">
+            <h3>日常轻松型</h3>
+            <p>冲突不重、对白轻快，适合当作休息时的短内容，不必记复杂人物关系。</p>
+            <div class="pick-meta"><span class="chip">治愈</span><span class="chip">日常</span></div>
+          </div>
+        </article>
+        <article class="pick-card">
+          <div class="pick-cover c4"><span>反转多</span></div>
+          <div class="pick-body">
+            <h3>悬疑追更型</h3>
+            <p>信息逐集释放，人物动机需要回看细节，适合愿意边看边推理的用户。</p>
+            <div class="pick-meta"><span class="chip">悬疑</span><span class="chip">推理</span></div>
+          </div>
+        </article>
+        <article class="pick-card">
+          <div class="pick-cover c5"><span>设定新</span></div>
+          <div class="pick-body">
+            <h3>身份错位型</h3>
+            <p>以身份与立场的错位制造看点，剧情推进依赖人物选择，节奏相对紧凑。</p>
+            <div class="pick-meta"><span class="chip">剧情</span><span class="chip">人物</span></div>
+          </div>
+        </article>
+        <article class="pick-card">
+          <div class="pick-cover c6"><span>完结好追</span></div>
+          <div class="pick-body">
+            <h3>短篇完结型</h3>
+            <p>篇幅短、结构完整，适合一次看完一个故事，再决定是否继续浏览其他题材。</p>
+            <div class="pick-meta"><span class="chip">短篇</span><span class="chip">完结</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>从红果短剧首页开始的三步</h2>
+          <p>首页承担的是“找到并进入”的任务。把浏览路径拆成三步，能减少在无关内容上停留的时间。</p>
+        </div>
+      </div>
+      <div class="how-grid">
+        <div class="how-item">
+          <h3>先选题材方向</h3>
+          <p>在分类区确定自己想看都市、情感还是悬疑，范围缩小后再看具体条目，判断会更准确。</p>
+        </div>
+        <div class="how-item">
+          <h3>再读封面与简介</h3>
+          <p>封面标签和一句话简介是首页给出的第一层信息，先看是否合口味，再决定是否点开详情。</p>
+        </div>
+        <div class="how-item">
+          <h3>最后按集连看</h3>
+          <p>短剧单集时长短，适合连续观看。若时间有限，可先看完一个完整故事，再回到首页换题材。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / READ -->
+  <section class="read" id="about">
+    <div class="wrap read-grid">
+      <div>
+        <h2>红果短剧首页提供什么</h2>
+        <p><b>红果短剧首页</b>的核心作用，是把分散的短剧内容组织成可浏览的入口。打开页面后，最先看到的是推荐位与分类导航，而不是冗长的列表，这让“今天看什么”这个问题有了更快的答案。</p>
+        <p>首页的信息大致分三层：<b>分类层</b>告诉你有哪几类内容，<b>推荐层</b>给出当前值得优先查看的条目，<b>说明层</b>解释各栏目如何配合使用。三层各司其职，用户可以从任意一层进入，不必按固定顺序浏览。</p>
+        <p>对习惯按题材找剧的观众，分类区是主要入口；对只想快速看点的观众，推荐位更直接。红果短剧首页把这两条路径并列放在页面靠前的位置，正是为了适配不同的使用习惯。</p>
+        <p>需要说明的是，首页展示的是内容入口与分类信息，具体剧集的可看范围、更新节奏以实际页面为准。本页作为红果短剧首页的导览页，帮助你理解各区域的作用，再回到实际平台完成观看。</p>
+      </div>
+      <aside class="faq">
+        <h3>常见问题</h3>
+        <details open>
+          <summary>首页先看哪里比较高效？</summary>
+          <p>如果已有偏好，直接从分类区进入；如果没想好，先看推荐位的标签再决定。</p>
+        </details>
+        <details>
+          <summary>短剧一般适合什么时间看？</summary>
+          <p>单集较短，通勤、午休、睡前都可以看一段，连续观看时注意自行安排休息。</p>
+        </details>
+        <details>
+          <summary>分类和推荐有什么区别？</summary>
+          <p>分类按题材组织，范围清晰；推荐按当前热度与编排展示，两者可以配合使用。</p>
+        </details>
+        <details>
+          <summary>首页信息会变化吗？</summary>
+          <p>推荐位与分类编排会随内容调整，具体以实际打开的红果短剧首页为准。</p>
+        </details>
+      </aside>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="wrap">
+      <div class="dl">
+        <div>
+          <h2>红果短剧首页 · 客户端</h2>
+          <p>习惯在手机上连续观看的用户，可以关注客户端版本，把首页推荐与分类入口放到更顺手的位置。</p>
+        </div>
+        <a href="#" class="dl-btn" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 21h16"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#e03a2f"/>
+            <circle cx="32" cy="30" r="13" fill="#fff"/>
+            <path d="M29 22l10 8-10 8z" fill="#e03a2f"/>
+            <path d="M20 16c4 5 4 11 0 16" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M44 16c-4 5-4 11 0 16" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          红果短剧首页
+        </div>
+        <p>以首页导览的方式整理短剧分类、推荐位与浏览路径，帮助访问者更快找到想看的内容，并理解各栏目的实际用途。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#categories">短剧分类</a></li>
+          <li><a href="#picks">热门推荐</a></li>
+          <li><a href="#how">观看指引</a></li>
+          <li><a href="#about">首页说明</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提示</h4>
+        <ul>
+          <li><a href="#about">栏目如何配合</a></li>
+          <li><a href="#how">从首页到剧集</a></li>
+          <li><a href="#download">客户端下载</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>红果短剧首页 · 内容导览页</span>
+      <span>页面信息以实际平台展示为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('menuBtn');
+    var nav = document.getElementById('mainNav');
+    if(btn && nav){
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>
