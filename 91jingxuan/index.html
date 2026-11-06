@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91精选网站-精选资源站点导航_热门合集入口聚合</title>
+<meta name="description" content="91精选网站是一个资源精选导航页面，按热门合集、分类入口与更新节奏整理内容，帮助访问者快速找到感兴趣的精选资源与站点入口。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Cpath d='M20 44 L32 18 L44 44' stroke='%23f59e0b' stroke-width='5' fill='none' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='47' r='4' fill='%23f59e0b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0f172a;
+  --ink-2:#1e293b;
+  --paper:#f7f6f3;
+  --card:#ffffff;
+  --line:#e5e2db;
+  --amber:#c2760a;
+  --amber-soft:#fdf3e3;
+  --muted:#6b7280;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* 页头 */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,246,243,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;height:68px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo .mark{
+  width:34px;height:34px;border-radius:9px;background:var(--ink);
+  display:grid;place-items:center;
+}
+.logo .mark svg{width:20px;height:20px}
+.logo b{font-size:17px;letter-spacing:.4px;font-weight:700;white-space:nowrap}
+nav.links{display:flex;gap:26px;font-size:14.5px;color:var(--ink-2)}
+nav.links a{padding:4px 0;border-bottom:2px solid transparent;transition:.2s}
+nav.links a:hover{color:var(--amber);border-bottom-color:var(--amber)}
+.nav .cta{
+  font-size:14px;font-weight:600;background:var(--ink);color:#fff;
+  padding:9px 18px;border-radius:999px;white-space:nowrap;transition:.2s;
+}
+.nav .cta:hover{background:var(--amber)}
+@media(max-width:820px){
+  nav.links{display:none}
+}
+
+/* 首屏 */
+.hero{
+  padding:64px 0 52px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(900px 320px at 88% -10%, #fdf3e3 0%, transparent 70%);
+}
+.hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:52px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;letter-spacing:1.5px;color:var(--amber);
+  background:var(--amber-soft);border:1px solid #f1e0c4;
+  padding:5px 13px;border-radius:999px;margin-bottom:20px;
+}
+h1{
+  font-size:clamp(30px,4.6vw,46px);
+  line-height:1.22;font-weight:800;letter-spacing:.5px;
+  margin-bottom:18px;
+}
+h1 em{font-style:normal;color:var(--amber)}
+.hero p.lead{font-size:16.5px;color:var(--ink-2);max-width:36em;margin-bottom:28px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:10px;font-size:15px;font-weight:600;
+  transition:.2s;
+}
+.btn.primary{background:var(--amber);color:#fff}
+.btn.primary:hover{background:#a35f06}
+.btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.hero-visual{
+  position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:20px;padding:22px;
+  box-shadow:0 18px 40px -28px rgba(15,23,42,.35);
+}
+.hero-visual .bar{display:flex;gap:6px;margin-bottom:18px}
+.hero-visual .bar i{width:9px;height:9px;border-radius:50%;background:#e2ddd2;display:block}
+.hero-visual .bar i:first-child{background:var(--amber)}
+.tile-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.tile{
+  aspect-ratio:1/1.05;border-radius:10px;background:var(--paper);
+  border:1px solid var(--line);
+  display:grid;place-items:center;color:#b6b1a6;
+}
+.tile svg{width:26px;height:26px}
+.tile.hot{background:var(--amber-soft);border-color:#f1e0c4;color:var(--amber)}
+.visual-note{font-size:12.5px;color:var(--muted);letter-spacing:.5px}
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero{padding:44px 0 40px}
+}
+
+/* 通用区块 */
+section.block{padding:60px 0;border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:34px;max-width:44em}
+.sec-tag{font-size:12.5px;letter-spacing:2px;color:var(--amber);font-weight:700;margin-bottom:8px}
+h2{font-size:clamp(22px,2.8vw,29px);font-weight:800;letter-spacing:.3px;margin-bottom:10px}
+.sec-head p{color:var(--muted);font-size:15px}
+
+/* 合集卡片 */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;display:flex;flex-direction:column;gap:12px;
+  transition:.25s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 34px -24px rgba(15,23,42,.4);border-color:#d8d3c8}
+.card .ico{
+  width:42px;height:42px;border-radius:10px;background:var(--amber-soft);
+  display:grid;place-items:center;color:var(--amber);
+}
+.card .ico svg{width:22px;height:22px}
+.card h3{font-size:17px;font-weight:700}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.7}
+.card .meta{display:flex;justify-content:space-between;font-size:12.5px;color:#9a948a;border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+@media(max-width:880px){.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
+
+/* 列表区 */
+.split{display:grid;grid-template-columns:1.4fr 1fr;gap:44px}
+.list{list-style:none;display:flex;flex-direction:column}
+.list li{
+  display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);
+}
+.list li:last-child{border-bottom:none}
+.list .num{
+  font-size:13px;font-weight:800;color:var(--amber);
+  background:var(--amber-soft);border-radius:8px;
+  width:36px;height:36px;flex-shrink:0;display:grid;place-items:center;
+}
+.list h3{font-size:16px;font-weight:700;margin-bottom:4px}
+.list p{font-size:14.5px;color:var(--muted)}
+.aside-box{
+  background:var(--ink);color:#e8e5de;border-radius:var(--radius);
+  padding:28px;position:sticky;top:92px;
+}
+.aside-box h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:14px}
+.aside-box p{font-size:14px;color:#b9b6ad;margin-bottom:16px}
+.aside-box ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.aside-box li{display:flex;justify-content:space-between;border-bottom:1px solid #2a3547;padding-bottom:9px}
+.aside-box li span:last-child{color:#f0b25e;font-weight:600}
+@media(max-width:880px){.split{grid-template-columns:1fr}.aside-box{position:static}}
+
+/* 说明正文 */
+.prose{display:grid;grid-template-columns:1fr 1fr;gap:40px;font-size:15px;color:var(--ink-2)}
+.prose h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.prose p{margin-bottom:14px}
+.prose .callout{
+  background:var(--card);border-left:3px solid var(--amber);
+  padding:16px 20px;border-radius:0 10px 10px 0;font-size:14.5px;color:var(--ink-2);
+  margin-top:6px;
+}
+@media(max-width:880px){.prose{grid-template-columns:1fr;gap:26px}}
+
+/* 下载条 */
+.download{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:30px 34px;display:flex;align-items:center;justify-content:space-between;
+  gap:24px;flex-wrap:wrap;
+}
+.download .txt h3{font-size:19px;font-weight:800;margin-bottom:6px}
+.download .txt p{font-size:14.5px;color:var(--muted)}
+.btn.disabled{
+  background:#e8e5de;color:#9a948a;pointer-events:none;
+  cursor:not-allowed;display:inline-flex;align-items:center;gap:8px;
+}
+.btn.disabled svg{width:17px;height:17px}
+
+/* 页尾 */
+footer.site{padding:44px 0 34px;background:var(--ink);color:#b9b6ad}
+footer.site .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+footer.site .flogo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:16px;margin-bottom:10px}
+footer.site .flogo .mark{width:30px;height:30px;border-radius:8px;background:#1f2b3d;display:grid;place-items:center}
+footer.site .flogo svg{width:17px;height:17px}
+footer.site p{font-size:13.5px;max-width:34em;line-height:1.8}
+footer.site nav{display:flex;gap:22px;font-size:13.5px;flex-wrap:wrap}
+footer.site nav a:hover{color:#f0b25e}
+.copy{margin-top:28px;padding-top:20px;border-top:1px solid #2a3547;font-size:12.5px;color:#84807a;width:100%}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="91精选网站首页">
+      <span class="mark">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 44 L32 18 L44 44" stroke="#f59e0b" stroke-width="6" fill="none" stroke-linejoin="round"/><circle cx="32" cy="47" r="4.5" fill="#f59e0b"/></svg>
+      </span>
+      <b>91精选网站</b>
+    </a>
+    <nav class="links" aria-label="主导航">
+      <a href="#collections">热门合集</a>
+      <a href="#ranking">精选榜单</a>
+      <a href="#guide">使用说明</a>
+      <a href="#download">入口下载</a>
+    </nav>
+    <a class="cta" href="#collections">进入精选</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">RESOURCE CURATION · 每日浏览</span>
+        <h1>91精选网站</h1>
+        <p class="lead">91精选网站把分散在各处的资源按主题归类，用合集、榜单与更新节奏三条线呈现。打开首页即可看到当前主推内容，再按分类进入具体入口，减少在无关页面之间来回跳转的时间。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#collections">浏览热门合集</a>
+          <a class="btn ghost" href="#guide">了解筛选方式</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="tile-row">
+          <div class="tile hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.6 6.1L21 12l-6.4 2.9L12 21l-2.6-6.1L3 12l6.4-2.9z"/></svg></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V9m5 9V5m5 13v-7m5 7V7"/></svg></div>
+        </div>
+        <div class="tile-row">
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+          <div class="tile hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4.5 4.5L19 7"/></svg></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h9l3 3v13H6z"/><path d="M9 11h6M9 15h6"/></svg></div>
+        </div>
+        <div class="visual-note">合集 · 榜单 · 分类入口 一页直达</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门合集 -->
+  <section class="block" id="collections">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">HOT COLLECTIONS</div>
+        <h2>热门合集：按主题打包的入口</h2>
+        <p>91精选网站的合集不是简单罗列链接，而是把同一主题下的多个入口放在一起，方便一次看清全貌。每个合集下方标注收录数量与最近一次调整时间。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.6 6.1L21 12l-6.4 2.9L12 21l-2.6-6.1L3 12l6.4-2.9z"/></svg></div>
+          <h3>本周主打</h3>
+          <p>集中展示近期访问量靠前的入口，适合只想快速看看当下什么内容被频繁打开的人。每隔几天根据浏览情况调整顺序。</p>
+          <div class="meta"><span>收录 18 个入口</span><span>定期轮换</span></div>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></div>
+          <h3>分类直达</h3>
+          <p>按内容类型分门别类，先选大类再进小类，避免在长列表中反复滚动。分类名称使用直白表达，不设多层嵌套。</p>
+          <div class="meta"><span>6 个一级分类</span><span>结构稳定</span></div>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V9m5 9V5m5 13v-7m5 7V7"/></svg></div>
+          <h3>新收录入口</h3>
+          <p>记录最近加入的站点与页面，标注加入时间，方便关注变化的人按时间顺序查看，而不是在旧列表里翻找。</p>
+          <div class="meta"><span>近期新增 9 项</span><span>持续补充</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 榜单 + 侧栏 -->
+  <section class="block" id="ranking">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <div class="sec-tag">CURATED LIST</div>
+          <h2>精选榜单：从浏览热度看内容</h2>
+          <p>榜单只呈现页面上真实存在的入口，排序参考打开次数与停留时长，不代表质量评价，仅作为浏览线索。</p>
+        </div>
+        <ol class="list">
+          <li>
+            <span class="num">01</span>
+            <div><h3>综合资源合辑</h3><p>覆盖多个内容方向，适合第一次访问、还不确定想看什么的人作为起点。</p></div>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div><h3>图文专题聚合</h3><p>以图片与短文为主，阅读门槛低，加载负担小，在移动网络下也能顺畅浏览。</p></div>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div><h3>长期更新栏目</h3><p>保持稳定更新节奏的栏目，适合有固定浏览习惯的人收藏后反复回访。</p></div>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <div><h3>轻量入口专区</h3><p>页面结构简单、打开速度快的入口集合，网络条件一般时可优先选择。</p></div>
+          </li>
+        </ol>
+      </div>
+      <aside class="aside-box">
+        <h3>91精选网站 · 浏览速览</h3>
+        <p>以下为页面当前的栏目状态，具体数字随内容调整而变化，仅作参考。</p>
+        <ul>
+          <li><span>一级分类</span><span>6 类</span></li>
+          <li><span>热门合集</span><span>3 组</span></li>
+          <li><span>精选榜单</span><span>4 条</span></li>
+          <li><span>新收录</span><span>9 项</span></li>
+          <li><span>更新方式</span><span>持续补充</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 使用说明 -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">HOW IT WORKS</div>
+        <h2>使用说明：三步找到想要的内容</h2>
+        <p>91精选网站的设计目标是缩短从打开首页到进入具体入口的距离，因此把导航、合集与榜单放在第一屏与第二屏范围内。</p>
+      </div>
+      <div class="prose">
+        <div>
+          <h3>先看合集，再进分类</h3>
+          <p>如果只是随便逛逛，从热门合集开始最省事：每组合集已经按同一主题挑好入口，点进去就是对应内容，不需要自己逐个筛选。若目标比较明确，则直接使用分类直达，按内容类型进入对应小类。</p>
+          <p>分类名称都采用直白说法，一级分类下不再做多层嵌套，避免出现"点进去还要再点"的情况。页面上的每个链接都指向真实可访问的页面，不设置空跳转。</p>
+          <div class="callout">提示：91精选网站的内容入口会随收录情况调整，收藏本页即可随时回到最新的合集与榜单。</div>
+        </div>
+        <div>
+          <h3>关注更新节奏</h3>
+          <p>新收录入口按加入时间排列，最近加入的排在前面。对更新较敏感的访问者，可以先看这一栏，再回看热门合集，两者结合可以同时掌握"新的"和"热的"。</p>
+          <p>榜单排序依据打开次数与停留时长，属于浏览热度参考，并非内容质量评级。同一入口在不同时间的排名可能变化，这属于正常现象。</p>
+          <p>页面本身不要求注册，也不收集个人信息，浏览记录只在本地用于统计入口热度，不涉及账号体系。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载入口 -->
+  <section class="block" id="download">
+    <div class="wrap">
+      <div class="download">
+        <div class="txt">
+          <h3>下载 91精选网站 入口包</h3>
+          <p>包含当前热门合集与分类入口的整理清单，方便离线查看。下载地址正在准备中。</p>
+        </div>
+        <a class="btn disabled" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <div class="flogo">
+        <span class="mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 44 L32 18 L44 44" stroke="#f59e0b" stroke-width="6" fill="none" stroke-linejoin="round"/><circle cx="32" cy="47" r="4.5" fill="#f59e0b"/></svg></span>
+        91精选网站
+      </div>
+      <p>91精选网站是一个资源精选导航页面，以合集、榜单与分类入口组织内容，帮助访问者减少无效跳转，快速找到感兴趣的页面。</p>
+    </div>
+    <nav aria-label="页尾导航">
+      <a href="#collections">热门合集</a>
+      <a href="#ranking">精选榜单</a>
+      <a href="#guide">使用说明</a>
+      <a href="#download">入口下载</a>
+    </nav>
+    <div class="copy">© 91精选网站 · 页面内容随收录情况调整，榜单排序仅作浏览参考。</div>
+  </div>
+</footer>
+
+</body>
+</html>
